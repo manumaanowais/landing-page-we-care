@@ -54,8 +54,13 @@
             color: blue !important;
         }
 
-        #topbar.topbar-colored, #topbar.topbar-colored.dark {
+        #topbar.topbar-colored,
+        #topbar.topbar-colored.dark {
             background-color: darkgoldenrod;
+        }
+
+        .webkitFillImage {
+            width: -webkit-fill-available
         }
 
         @media only screen and (min-width:1px) and (max-width:520px) {
@@ -86,8 +91,8 @@
             }
 
             .contact ul {
-            justify-content: space-between;
-        }
+                justify-content: space-between;
+            }
         }
     </style>
 </head>
@@ -100,27 +105,30 @@
     <!-- Body Inner -->
     <div class="body-inner">
         <!-- Topbar -->
-    <div id="topbar" class="dark topbar-colored topbar-fullwidth">
-        <div class="container">
-            <div class="row" style="justify-content: space-between;">
-                <div>
-                    <div style="margin:1rem 0;">
-                        <span class="quote lead text-center" style="color: white;">Customer Helpline</span>
+        <div id="topbar" class="dark topbar-colored topbar-fullwidth">
+            <div class="container">
+                <div class="row" style="justify-content: space-between;">
+                    <div>
+                        <div style="margin:1rem 0;">
+                            <span class="quote lead text-center" style="color: white;">Customer Helpline</span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 d-sm-block">
-                    <div class="contact">
-                        <ul style="display: flex; gap:30px; list-style-type: none;">
-                            <li><a href="tel:+919666351433"><p style = "color: white; margin-bottom: 0">Talk to an expert now </p><i class="fa fa-phone"></i> +91 9666351433</a></li>
-                            <li><a style = "word-break: break-all;" href="mailto:wecarehomeservices5@gmail.com">Email : <i
-                                        class="fa fa-envelope"></i>wecarehomeservices5@gmail.com</a></li>
-                        </ul>
+                    <div class="col-md-6 d-sm-block">
+                        <div class="contact">
+                            <ul style="display: flex; gap:30px; list-style-type: none;">
+                                <li><a href="tel:+919666351433">
+                                        <p style="color: white; margin-bottom: 0">Talk to an expert now </p><i
+                                            class="fa fa-phone"></i> +91 9666351433
+                                    </a></li>
+                                <li><a style="word-break: break-all;" href="mailto:wecarehomeservices5@gmail.com">Email
+                                        : <i class="fa fa-envelope"></i>wecarehomeservices5@gmail.com</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- end: Topbar -->
+        <!-- end: Topbar -->
 
         <!-- Header -->
         <header id="header" data-transparent="true" data-fullwidth="true" class="dark submenu-light">
@@ -165,13 +173,15 @@
                     <div class="slide-captions text-center text-light">
                         <!-- Captions -->
                         <h1>WELCOME TO WE CARE HOME SERVICES</h1>
-                        <p>Making Your Home a Better Place, One Service at a Time. Professional Home Services at Your Fingertips, Your Trusted Partner for Home Services.</p>
-                        <p>Call us now at: <a style="background-color: darkblue;" href="tel:+919666351433">+91 9666351433</a></p>
+                        <p>Making Your Home a Better Place, One Service at a Time. Professional Home Services at Your
+                            Fingertips, Your Trusted Partner for Home Services.</p>
+                        <p>Call us now at: <a style="background-color: darkblue;" href="tel:+919666351433">+91
+                                9666351433</a></p>
                         <a href="https://wecarehomeservices.in/index.html" class="btn scroll-to">Get Started</a>
                         <!-- end: Captions -->
                     </div>
                 </div>
-                
+
             </div>
             <!-- end: Slide 1 -->
             <!-- Slide 2 -->
@@ -221,6 +231,7 @@
                             <h4>Refrigerator Repairs</h4>
                             <p>Expert technicians ready to diagnose and fix any refrigerator issue, ensuring your
                                 appliance runs smoothly again.</p>
+                            <img class="webkitFillImage" src="images/fridge2.jpg" />
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -228,13 +239,8 @@
                             <h4>Refrigerator Maintenance</h4>
                             <p>Preventive maintenance plans to keep your refrigerator in top condition, prolonging its
                                 lifespan and preventing costly breakdowns.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div data-animate="fadeInUp" data-animate-delay="400">
-                            <h4>Refrigerator Installation</h4>
-                            <p>Professional installation services for seamless integration of your new refrigerator into
-                                your home, with careful attention to detail.</p>
+                            <img class="webkitFillImage" src="images/fridge1.jpg" />
+
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -242,6 +248,8 @@
                             <h4>AC Repairs</h4>
                             <p>Comprehensive AC services including installation, repairs, and maintenance to keep your
                                 home cool and comfortable year-round.</p>
+                            <img class="webkitFillImage" src="images/ac1.jpg" />
+
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -249,6 +257,8 @@
                             <h4>AC Maintenance</h4>
                             <p>Swift and efficient repairs to address any AC malfunction, restoring comfort to your home
                                 quickly and effectively.</p>
+                            <img class="webkitFillImage" src="images/ac2.jpg" />
+
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -256,148 +266,159 @@
                             <h4>AC Installation</h4>
                             <p>Skillful installation of air conditioning systems tailored to your home's layout and
                                 cooling requirements, ensuring optimal performance.</p>
+                            <img class="webkitFillImage" src="images/ac3.jpg" />
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div data-animate="fadeInUp" data-animate-delay="1000">
+                            <h4>AC Services</h4>
+                            <p>At We Care Home Services, we understand the crucial role your air conditioning system plays
+                                in your daily life, and we're dedicated to making sure it keeps you cool when
+                                you need it most.</p>
+                            <img class="webkitFillImage" src="images/ac4.jpg" />
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- END WHAT WE DO -->
-        <!-- COUNTERS -->
-        <section class="text-light p-t-150 p-b-150 " data-bg-parallax="images/parallax/12.jpg">
-            <div class="bg-overlay"></div>
+    </div>
+    </section>
+    <!-- END WHAT WE DO -->
+    <!-- COUNTERS -->
+    <section class="text-light p-t-150 p-b-150 " data-bg-parallax="images/parallax/12.jpg">
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="text-center">
+                        <div class="icon"><i class="fa fa-3x fa-certificate"></i></div>
+                        <div class="counter"> <span data-speed="3000" data-refresh-interval="50" data-to="148"
+                                data-from="600" data-seperator="true"></span> </div>
+                        <div class="seperator seperator-small"></div>
+                        <p>CERTIFIED EXPERTS</p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="text-center">
+                        <div class="icon"><i class="fa fa-3x fa-calendar"></i></div>
+                        <div class="counter"> <span data-speed="4500" data-refresh-interval="23" data-to="365"
+                                data-from="100" data-seperator="true"></span> </div>
+                        <div class="seperator seperator-small"></div>
+                        <p>24/7 AVAILABILITY</p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="text-center">
+                        <div class="icon"><i class="fa fa-3x fa-inr"></i></div>
+                        <div class="counter"> <span data-speed="2000" data-refresh-interval="50" data-to="1800"
+                                data-from="50" data-seperator="true"></span> </div>
+                        <div class="counter"> <span data-speed="2000" data-refresh-interval="50" data-to="2800"
+                                data-from="50" data-seperator="true"></span> </div>
+                        <div class="seperator seperator-small"></div>
+                        <p>AFFORDABLE PRICES</p>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="text-center">
+                        <div class="icon"><i class="fa fa-3x fa-users"></i></div>
+                        <div class="counter"> <span data-speed="4550" data-refresh-interval="50" data-to="1487"
+                                data-from="48" data-seperator="true"></span> </div>
+                        <div class="seperator seperator-small"></div>
+                        <p>SATISFIED CLIENTS</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end: COUNTERS -->
+    <!-- Footer -->
+    <footer id="footer" class="inverted">
+        <div class="footer-content">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3">
-                        <div class="text-center">
-                            <div class="icon"><i class="fa fa-3x fa-certificate"></i></div>
-                            <div class="counter"> <span data-speed="3000" data-refresh-interval="50" data-to="148"
-                                    data-from="600" data-seperator="true"></span> </div>
-                            <div class="seperator seperator-small"></div>
-                            <p>CERTIFIED EXPERTS</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="text-center">
-                            <div class="icon"><i class="fa fa-3x fa-calendar"></i></div>
-                            <div class="counter"> <span data-speed="4500" data-refresh-interval="23" data-to="365"
-                                    data-from="100" data-seperator="true"></span> </div>
-                            <div class="seperator seperator-small"></div>
-                            <p>24/7 AVAILABILITY</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="text-center">
-                            <div class="icon"><i class="fa fa-3x fa-inr"></i></div>
-                            <div class="counter"> <span data-speed="2000" data-refresh-interval="50" data-to="1800"
-                                    data-from="50" data-seperator="true"></span> </div>
-                            <div class="counter"> <span data-speed="2000" data-refresh-interval="50" data-to="2800"
-                                data-from="50" data-seperator="true"></span> </div>
-                            <div class="seperator seperator-small"></div>
-                            <p>AFFORDABLE PRICES</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="text-center">
-                            <div class="icon"><i class="fa fa-3x fa-users"></i></div>
-                            <div class="counter"> <span data-speed="4550" data-refresh-interval="50" data-to="1487"
-                                    data-from="48" data-seperator="true"></span> </div>
-                            <div class="seperator seperator-small"></div>
-                            <p>SATISFIED CLIENTS</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- end: COUNTERS -->
-        <!-- Footer -->
-        <footer id="footer" class="inverted">
-            <div class="footer-content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <div class="widget">
+                    <div class="col-lg-5">
+                        <div class="widget">
 
-                                <div class="widget-title">We Care Home Services</div>
-                                <p class="mb-5"> All rights reserved. Copyright © 2024.</p>
+                            <div class="widget-title">We Care Home Services</div>
+                            <p class="mb-5"> All rights reserved. Copyright © 2024.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="widget">
+                                    <div class="widget-title">Discover</div>
+                                    <ul class="list">
+                                        <li><a href="https://wecarehomeservices.in/index.html">Home</a></li>
+                                        <li><a href="https://wecarehomeservices.in/services.html">services</a></li>
+                                        <li><a href="https://wecarehomeservices.in/about.html">About Us</a></li>
+                                        <li><a href="https://wecarehomeservices.in/contact.html">Contact Us</a></li>
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-lg-7">
-                            <div class="row">
-                                <div class="col-lg-3">
-                                    <div class="widget">
-                                        <div class="widget-title">Discover</div>
-                                        <ul class="list">
-                                            <li><a href="https://wecarehomeservices.in/index.html">Home</a></li>
-                                            <li><a href="https://wecarehomeservices.in/services.html">services</a></li>
-                                            <li><a href="https://wecarehomeservices.in/about.html">About Us</a></li>
-                                            <li><a href="https://wecarehomeservices.in/contact.html">Contact Us</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
 
-                                <div class="col-lg-3">
-                                    <div class="widget">
-                                        <div class="widget-title">Services</div>
-                                        <ul class="list">
-                                            <li><a
-                                                    href="https://wecarehomeservices.in/services.html#refrigerator">Refrigerator</a>
-                                            </li>
-                                            <li><a href="https://wecarehomeservices.in/services.html#airconditioner">Air
-                                                    Conditioner</a></li>
-                                        </ul>
-                                    </div>
+                            <div class="col-lg-3">
+                                <div class="widget">
+                                    <div class="widget-title">Services</div>
+                                    <ul class="list">
+                                        <li><a
+                                                href="https://wecarehomeservices.in/services.html#refrigerator">Refrigerator</a>
+                                        </li>
+                                        <li><a href="https://wecarehomeservices.in/services.html#airconditioner">Air
+                                                Conditioner</a></li>
+                                    </ul>
                                 </div>
-                                <div class="col-lg-3">
-                                    <div class="widget">
-                                        <div class="widget-title">Contact Us</div>
-                                        <ul class="footer-list" style="list-style-type: none;">
-                                            <li class="footer-item">
-                                                <div class="item-icon">
-                                                    <ion-icon name="location-outline"></ion-icon>
-                                                </div>
-                                                <a href="https://goo.gl/maps/BYA5MxQUg5B8ZFLcA">
-                                                    <address class="item-text">
-                                                        Hyderabad, Secundrabad ,<br>
-                                                        Telangana.
-                                                    </address>
-                                                </a>
-                                            </li>
-                                            <li class="footer-item">
-                                                <div class="item-icon">
-                                                    <ion-icon name="call-outline"></ion-icon>
-                                                </div>
-                                                <a href="tel:+919666351433" class="footer-link">+91-9666-351-433</a>
-                                            </li>
-                                            <li class="footer-item">
-                                                <div class="item-icon">
-                                                    <ion-icon name="call-outline"></ion-icon>
-                                                </div>
-                                                <a href="tel:+917995414496" class="footer-link">+91-7995-414-496</a>
-                                            </li>
-                                            <li class="footer-item">
-                                                <div class="item-icon">
-                                                    <ion-icon name="mail-outline"></ion-icon>
-                                                </div>
-                                                <a href="mailto:wecarehomeservices5@gmail.com"
-                                                    class="footer-link">wecarehomeservices5@gmail.com</a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="widget">
+                                    <div class="widget-title">Contact Us</div>
+                                    <ul class="footer-list" style="list-style-type: none;">
+                                        <li class="footer-item">
+                                            <div class="item-icon">
+                                                <ion-icon name="location-outline"></ion-icon>
+                                            </div>
+                                            <a href="https://goo.gl/maps/BYA5MxQUg5B8ZFLcA">
+                                                <address class="item-text">
+                                                    Hyderabad, Secundrabad ,<br>
+                                                    Telangana.
+                                                </address>
+                                            </a>
+                                        </li>
+                                        <li class="footer-item">
+                                            <div class="item-icon">
+                                                <ion-icon name="call-outline"></ion-icon>
+                                            </div>
+                                            <a href="tel:+919666351433" class="footer-link">+91-9666-351-433</a>
+                                        </li>
+                                        <li class="footer-item">
+                                            <div class="item-icon">
+                                                <ion-icon name="call-outline"></ion-icon>
+                                            </div>
+                                            <a href="tel:+917995414496" class="footer-link">+91-7995-414-496</a>
+                                        </li>
+                                        <li class="footer-item">
+                                            <div class="item-icon">
+                                                <ion-icon name="mail-outline"></ion-icon>
+                                            </div>
+                                            <a href="mailto:wecarehomeservices5@gmail.com"
+                                                class="footer-link">wecarehomeservices5@gmail.com</a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="copyright-content">
-                <div class="container">
-                    <div class="copyright-text text-center">&copy; 2024 - We Care Home Services. All Rights
-                        Reserved.</a>
-                    </div>
+        </div>
+        <div class="copyright-content">
+            <div class="container">
+                <div class="copyright-text text-center">&copy; 2024 - We Care Home Services. All Rights
+                    Reserved.</a>
                 </div>
             </div>
-        </footer>
-        <!-- end: Footer -->
+        </div>
+    </footer>
+    <!-- end: Footer -->
     </div>
     <!-- end: Body Inner -->
     <!-- Scroll top -->
