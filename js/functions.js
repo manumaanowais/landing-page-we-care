@@ -3041,7 +3041,7 @@ var INSPIRO = {},
             id: elem.attr("data-flickr-id") || "52617155@N08",
             limit: elem.attr("data-flickr-images") || "9",
             itemTemplate:
-              '<a href="{{image}}" title="{{title}}"><img src="{{image_s}}" alt="{{title}}" /></a>'
+              '<a href="{{image}}" title="{{title}}"><img src="{{image_s}}" alt="{{title}}" loading="lazy" /></a>'
           };
           //Initializing jflickrfeed plugin and passing the options
           $flickr_widget.jflickrfeed(
