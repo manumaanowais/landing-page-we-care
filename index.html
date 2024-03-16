@@ -66,6 +66,14 @@
             display: none;
         }
 
+        .is-selected {
+            background-image: url('images/ac3.jpg');
+        }
+
+        .servicesDropdown {
+            display: inline;
+        }
+
         @media only screen and (min-width:1px) and (max-width:520px) {
             .contact_whatsapp {
                 width: 50px;
@@ -103,6 +111,15 @@
 
             .dnone {
                 display: inline-block;
+            }
+
+            #mainMenu:not(.menu-overlay) nav > ul > li.dropdown:before {
+                display: none;
+            }
+
+            .servicesDropdown {
+                display: flex !important;
+                justify-content: space-between !important;
             }
         }
     </style>
@@ -156,7 +173,7 @@
                             <nav>
                                 <ul>
                                     <li><a href="index.html">Home</a></li>
-                                    <li class="dropdown"><a href="https://wecarehomeservices.in/services.html">Services<span class="dnone"><i class="fa fa-chevron-down" aria-hidden="true"></i></span></a>
+                                    <li class="dropdown"><a class="servicesDropdown" href="https://wecarehomeservices.in/services.html">Services<span class="dnone"><i class="fa fa-chevron-down" aria-hidden="true"></i></span></a>
                                         <ul class="dropdown-menu">
                                             <li><a href="https://wecarehomeservices.in/services.html#refrigerator">Refrigerator
                                                     Service</a></li>
@@ -177,21 +194,20 @@
         <!-- Inspiro Slider -->
         <div id="slider" class="inspiro-slider slider-fullscreen dots-creative">
             <!-- Slide 1 -->
-            <div class="slide kenburns" data-bg-image="images/ac3.jpg">
+            <div class="slide kenburns is-selected bg-loaded" style="position: absolute; left: 0%;">
                 <div class="bg-overlay"></div>
                 <div class="container">
                     <div class="slide-captions text-center text-light">
                         <!-- Captions -->
                         <h1>WELCOME TO WE CARE HOME SERVICES</h1>
-                        <p>Making Your Home a Better Place, One Service at a Time. Professional Home Services at Your
-                            Fingertips, Your Trusted Partner for Home Services.</p>
-                        <p>Call us now at: <a style="background-color: darkblue;" href="tel:+919666351433">+91
-                                9666351433</a></p>
+                        <p>Making Your Home a Better Place, One Service at a Time. Professional Home Services at Your Fingertips, Your Trusted Partner for Home Services.</p>
+                        <p>Call us now at: <a style="background-color: darkblue;" href="tel:+919666351433">+91 9666351433</a></p>
                         <a href="https://wecarehomeservices.in/index.html" class="btn scroll-to">Get Started</a>
                         <!-- end: Captions -->
                     </div>
                 </div>
-
+            </div>
+            
             </div>
             <!-- end: Slide 1 -->
             <!-- Slide 2 -->
