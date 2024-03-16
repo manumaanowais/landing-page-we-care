@@ -102,8 +102,6 @@ var INSPIRO = {},
       INSPIRO.core.rtlStatus();
       INSPIRO.core.rtlStatusActivate();
       INSPIRO.core.equalize();
-      INSPIRO.core.customHeight();
-      INSPIRO.core.darkTheme();
     },
     scrollTop: function() {
       var $scrollTop = $("#scrollTop");
@@ -174,110 +172,13 @@ var INSPIRO = {},
         });
       }
     },
-    customHeight: function(setHeight) {
-      var $customHeight = $(".custom-height");
-      if ($customHeight.length > 0) {
-        $customHeight.each(function() {
-          var elem = $(this),
-            elemHeight = elem.attr("data-height") || 400,
-            elemHeightLg = elem.attr("data-height-lg") || elemHeight,
-            elemHeightMd = elem.attr("data-height-md") || elemHeightLg,
-            elemHeightSm = elem.attr("data-height-sm") || elemHeightMd,
-            elemHeightXs = elem.attr("data-height-xs") || elemHeightSm;
-
-          function customHeightBreakpoint(setHeight) {
-            if (setHeight) {
-              elem = setHeight;
-            }
-            switch ($(window).breakpoints("getBreakpoint")) {
-              case "xs":
-                elem.height(elemHeightXs);
-                break;
-              case "sm":
-                elem.height(elemHeightSm);
-                break;
-              case "md":
-                elem.height(elemHeightMd);
-                break;
-              case "lg":
-                elem.height(elemHeightLg);
-                break;
-              case "xl":
-                elem.height(elemHeight);
-                break;
-            }
-          }
-          customHeightBreakpoint(setHeight);
-          $(window).resize(function() {
-            setTimeout(function() {
-              customHeightBreakpoint(setHeight);
-            }, 100);
-          });
-        });
-      }
-    },
-    darkTheme: function() {
-      var $darkElement = $("[data-dark-src]"),
-        $lightBtnTrigger = $("#light-mode"),
-        $darkBtnTrigger = $("#dark-mode"),
-        darkColorScheme = "darkColorScheme",
-        defaultDark = $body.hasClass("dark");
-
-      if (typeof Cookies.get(darkColorScheme) !== "undefined") {
-        $body.addClass("dark");
-      }
-
-      $darkBtnTrigger.on("click", function(e) {
-        darkElemSrc();
-        $body.addClass("dark");
-        INSPIRO.elements.shapeDivider();
-        Cookies.set(darkColorScheme, true, {
-          expires: Number(365)
-        });
-      });
-
-      $lightBtnTrigger.on("click", function(e) {
-        lightElemSrc();
-        $body.removeClass("dark");
-        INSPIRO.elements.shapeDivider();
-        Cookies.remove(darkColorScheme);
-      });
-
-      if ($body.hasClass("dark")) {
-        darkElemSrc();
-      }
-
-      function darkElemSrc() {
-        $darkElement.each(function() {
-          var elem = $(this),
-            elemOriginalSrc = elem.attr("src"),
-            elemDarkSrc = elem.attr("data-dark-src");
-
-          if (elemDarkSrc) {
-            elem.attr("data-original-src", elemOriginalSrc);
-            elem.attr("src", elemDarkSrc);
-          }
-        });
-      }
-
-      function lightElemSrc() {
-        $darkElement.each(function() {
-          var elem = $(this),
-            elemLightSrc = elem.attr("data-original-src");
-
-          if (elemLightSrc) {
-            elem.attr("src", elemLightSrc);
-          }
-        });
-      }
-    },
   };
   INSPIRO.header = {
     functions: function() {
-      INSPIRO.header.logoStatus();
+INSPIRO.header.logoStatus();
       INSPIRO.header.stickyHeader();
       INSPIRO.header.topBar();
-      INSPIRO.header.search();
+INSPIRO.header.search();
       INSPIRO.header.mainMenu();
       INSPIRO.header.mainMenuOverlay();
       INSPIRO.header.pageMenu();
@@ -285,7 +186,7 @@ var INSPIRO = {},
       INSPIRO.header.dotsMenu();
       INSPIRO.header.onepageMenu();
     },
-    logoStatus: function(status) {
+logoStatus: function(status) {
       var headerLogoDefault = headerLogo.find($(".logo-default")),
         headerLogoDark = headerLogo.find($(".logo-dark")),
         headerLogoFixed = headerLogo.find(".logo-fixed"),
@@ -376,7 +277,7 @@ var INSPIRO = {},
         });
       }
     },
-    search: function() {
+search: function() {
       var $search = $("#search");
       if ($search.length > 0) {
         var searchBtn = $("#btn-search"),
@@ -1137,192 +1038,11 @@ var INSPIRO = {},
   };
   INSPIRO.elements = {
     functions: function() {
-      INSPIRO.elements.naTo();
-      INSPIRO.elements.morphext();
       INSPIRO.elements.buttons();
       INSPIRO.elements.accordion();
       INSPIRO.elements.animations();
-      INSPIRO.elements.parallax();
       INSPIRO.elements.backgroundImage();
-      INSPIRO.elements.shapeDivider();
-      INSPIRO.elements.responsiveVideos();
       INSPIRO.elements.counters();
-      INSPIRO.elements.countdownTimer();
-      INSPIRO.elements.progressBar();
-      INSPIRO.elements.pieChart();
-      INSPIRO.elements.maps();
-      INSPIRO.elements.gridLayout();
-      INSPIRO.elements.tooltip();
-      INSPIRO.elements.popover();
-      INSPIRO.elements.magnificPopup();
-      INSPIRO.elements.yTPlayer();
-      INSPIRO.elements.vimeoPlayer();
-      INSPIRO.elements.modal();
-      INSPIRO.elements.sidebarFixed();
-      INSPIRO.elements.clipboard();
-      INSPIRO.elements.bootstrapSwitch();
-      INSPIRO.elements.countdown();
-      INSPIRO.elements.other();
-      INSPIRO.elements.videoBackground();
-      INSPIRO.elements.forms();
-      INSPIRO.elements.formValidation();
-      INSPIRO.elements.formAjaxProcessing();
-      INSPIRO.elements.wizard();
-    },
-    forms: function() {
-      //Show hide password
-      var $showHidePassword = $(".show-hide-password");
-      if ($showHidePassword.length > 0) {
-        $showHidePassword.each(function() {
-          var elem = $(this),
-            $iconEye = "icon-eye11",
-            $iconClosedEye = "icon-eye-off",
-            elemShowHideIcon = elem.find(".input-group-append i"),
-            elemInput = elem.children("input");
-          elem.find(".input-group-append i").css({
-            cursor: "pointer"
-          });
-          elemShowHideIcon.on("click", function(event) {
-            event.preventDefault();
-            if (elem.children("input").attr("type") == "text") {
-              elemInput.attr("type", "password");
-              elemShowHideIcon.removeClass($iconEye);
-              elemShowHideIcon.addClass($iconClosedEye);
-            } else if (elem.children("input").attr("type") == "password") {
-              elemInput.attr("type", "text");
-              elemShowHideIcon.addClass($iconEye);
-              elemShowHideIcon.removeClass($iconClosedEye);
-            }
-          });
-        });
-      }
-    },
-    formValidation: function() {
-      var forms = document.getElementsByClassName("needs-validation");
-      var validation = Array.prototype.filter.call(forms, function(form) {
-        form.addEventListener(
-          "submit",
-          function(event) {
-            if (form.checkValidity() === false) {
-              event.preventDefault();
-              event.stopPropagation();
-            }
-            form.classList.add("was-validated");
-          },
-          false
-        );
-      });
-    },
-    wizard: function() {
-      //Show hide password
-    },
-    other: function(context) {
-      //Lazy Load
-      $(function() {
-        $(".lazy").Lazy({
-          afterLoad: function(element) {
-            element.addClass("img-loaded");
-          }
-        });
-      });
-      if ($(".toggle-item").length > 0) {
-        $(".toggle-item").each(function() {
-          var elem = $(this),
-            toggleItemClass = elem.attr("data-class"),
-            toggleItemClassTarget = elem.attr("data-target");
-          elem.on("click", function() {
-            if (toggleItemClass) {
-              if (toggleItemClassTarget) {
-                $(toggleItemClassTarget).toggleClass(toggleItemClass);
-              } else {
-                elem.toggleClass(toggleItemClass);
-              }
-            }
-            elem.toggleClass("toggle-active");
-            return false;
-          });
-        });
-      }
-      /*Dropdown popup invert*/
-      var $pDropdown = $(".p-dropdown");
-      if ($pDropdown.length > 0) {
-        $pDropdown.each(function() {
-          var elem = $(this);
-          if ($window.width() / 2 > elem.offset().left) {
-            elem.addClass("p-dropdown-invert");
-          }
-        });
-      }
-    },
-    naTo: function() {
-      $(
-        "a.scroll-to, #dotsMenu > ul > li > a, .menu-one-page nav > ul > li > a"
-      ).on("click", function() {
-        var extraPaddingTop = 0,
-          extraHeaderHeight = 0;
-        $(window).breakpoints("lessThan", "lg", function() {
-          if (Settings.menuIsOpen) {
-            $mainMenuTriggerBtn.trigger("click");
-          }
-          if ($header.attr("data-responsive-fixed") === true) {
-            extraHeaderHeight = $header.height();
-          }
-        });
-        $(window).breakpoints("greaterEqualTo", "lg", function() {
-          if ($header.length > 0) {
-            extraHeaderHeight = $header.height();
-          }
-        });
-        if ($(".dashboard").length > 0) {
-          extraPaddingTop = 30;
-        }
-        var $anchor = $(this);
-        $("html, body")
-          .stop(true, false)
-          .animate(
-            {
-              scrollTop:
-                $($anchor.attr("href")).offset().top -
-                (extraHeaderHeight + extraPaddingTop)
-            },
-            1500,
-            "easeInOutExpo"
-          );
-        return false;
-      });
-    },
-    morphext: function() {
-      var $textRotator = $(".text-rotator");
-      if ($textRotator.length > 0) {
-        //Check if Morphext plugin is loaded
-        if (typeof $.fn.Morphext === "undefined") {
-          INSPIRO.elements.notification(
-            "Warning",
-            "jQuery Morphext plugin is missing in plugins.js file.",
-            "danger"
-          );
-          return true;
-        }
-        $textRotator.each(function() {
-          var elem = $(this);
-          //Plugin Options
-          elem.options = {
-            animation: elem.attr("data-animation") || "fadeIn",
-            separator: elem.attr("data-separator") || ",",
-            speed: elem.attr("data-speed") || 2000,
-            height: elem.height()
-          };
-          elem.css({
-            "min-height": elem.options.height
-          });
-          //Initializing Morphext plugin and passing the options
-          elem.Morphext({
-            animation: elem.options.animation,
-            separator: elem.options.separator,
-            speed: Number(elem.options.speed)
-          });
-        });
-      }
     },
     buttons: function() {
       //Button slide width
@@ -1447,40 +1167,6 @@ var INSPIRO = {},
         });
       }
     },
-    parallax: function() {
-      var $parallax = $("[data-bg-parallax]");
-      if ($parallax.length > 0) {
-        //Check if scrolly plugin is loaded
-        if (typeof $.fn.scrolly === "undefined") {
-          INSPIRO.elements.notification(
-            "Warning",
-            "jQuery scrolly plugin is missing in plugins.js file.",
-            "danger"
-          );
-          return true;
-        }
-        $parallax.each(function() {
-          var $elem = $(this),
-            elemImageSrc = $elem.attr("data-bg-parallax"),
-            elemImageVelocity = $elem.attr("data-velocity") || "-.140";
-          $elem.prepend('<div class="parallax-container" data-lazy-background="' +elemImageSrc +'"  data-velocity="' +elemImageVelocity +'" style="background: url(' +elemImageSrc +')"></div>'
-          );
-          $(".parallax-container").lazy({
-            attribute: "data-lazy-background",
-            afterLoad: function(element) {
-              $elem.find(".parallax-container").addClass("img-loaded");
-            }
-          });
-          if ($body.hasClass("breakpoint-lg") || $body.hasClass("breakpoint-xl")) {
-            $elem.find(".parallax-container").scrolly({
-              bgParallax: true
-            });
-          } else {
-            $elem.find(".parallax-container").addClass("parallax-responsive");
-          }
-        });
-      }
-    },
     backgroundImage: function() {
       var $backgroundImage = $("[data-bg-image]");
       if ($backgroundImage.length > 0) {
@@ -1494,171 +1180,6 @@ var INSPIRO = {},
               $elem.addClass("bg-loaded");
             }
           });
-        });
-      }
-    },
-    shapeDivider: function() {
-      var $shape_divider = $(".shape-divider");
-      $shape_divider.each(function() {
-        var elem = $(this);
-        elem.options = {
-          style: elem.attr("data-style") || 1,
-          color: elem.attr("data-color") || "#ffffff",
-          opacity: elem.attr("data-opacity") || "1",
-          zIndex: elem.attr("data-zIndex") || "0",
-          height: elem.attr("data-height") || 210,
-          prefix:
-            "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2MzAg"
-        };
-        switch (elem.options.style) {
-          case "1":
-            elem.options.style =
-              elem.options.prefix +
-              "MTI1LjcyIj48dGl0bGU+QXNzZXQgMTc0PC90aXRsZT48cGF0aCBkPSJNMzk1LDk5LjM3Yy01Ny40MywxMC4xNy0xMjQuMjctOC4wNi0xNzYuOC0xMS43MnEzLjkzLjY0LDgsMS40MWM1MC44MSw2LDExMy4zLDI0LjA4LDE2OC43NiwxNC4yNkM0NjgsOTAuNDIsNTE5LjYsMTEuODgsNjMwLDguOVYwQzUwNS40Miw0LDQ2OCw4Ni40NywzOTUsOTkuMzdaIiBzdHlsZT0iZmlsbDojZmZmO29wYWNpdHk6MC4zMDAwMDAwMDAwMDAwMDAwNCIvPjxwYXRoIGQ9Ik0yMjYuMjUsODlDMjczLjg4LDk4LDMzOC4xNCwxMTkuMjksMzk1LDEwOS4yM2M3Mi45My0xMi45MSwxMjYuNjEtNzcuNDYsMjM1LTczLjQ4VjguODZjLTExMC40LDMtMTYyLDgxLjUxLTIzNSw5NC40MkMzMzkuNTUsMTEzLjEsMjc3LjA2LDk1LjA3LDIyNi4yNSw4OVoiIHN0eWxlPSJmaWxsOiNmZmY7b3BhY2l0eTowLjYzIi8+PHBhdGggZD0iTTYwLjgyLDEyMi44OCw2MiwxMjNhMzEuNDksMzEuNDksMCwwLDAsOS4zNC0uNjRBMTAxLjI2LDEwMS4yNiwwLDAsMSw2MC44MiwxMjIuODhaIiBzdHlsZT0iZmlsbDojZmZmIi8+PHBhdGggZD0iTTYwLjgyLDEyMi44OCw2MiwxMjNhMzEuNDksMzEuNDksMCwwLDAsOS4zNC0uNjRBMTAxLjI2LDEwMS4yNiwwLDAsMSw2MC44MiwxMjIuODhaIiBzdHlsZT0iZmlsbDojZmZmO29wYWNpdHk6MC4zNTAwMDAwMDAwMDAwMDAwMyIvPjxwYXRoIGQ9Ik0zOTgsMTA3Ljg0Yy01Ni4xNSwxMC4wNy0xMTkuNTktMTEuMjYtMTY2LjYyLTIwLjItMi43MS0uNTItNS4zNS0xLTcuOTQtMS40MUExNTkuNTQsMTU5LjU0LDAsMCwwLDIwMiw4NHEtMy4wOS0uMDktNiwwYy0uNzEsMC0xLjM5LjA4LTIuMDkuMTItNTIuOCwyLjkzLTgwLjM0LDI4Ljc4LTExMi45MSwzNi42MmE3Mi42Myw3Mi42MywwLDAsMS05LjY2LDEuNjJBMzEuNDksMzEuNDksMCwwLDEsNjIsMTIzbC0xLjE4LS4xM0MzMS4zNywxMjIuODUsMCwxMTEuODIsMCwxMTEuODJ2MTMuOUg2MzBWMzQuMzZDNTIzLDMwLjM5LDQ3MCw5NC45NCwzOTgsMTA3Ljg0WiIgc3R5bGU9ImZpbGw6I2ZmZiIvPjxwYXRoIGQ9Ik0wLDEwMi4xNHYxMGM4MywzNCwxMjYuODMtMTQsMTkwLTI0bDEtNGMtNDQuNCw2LjI2LTQ1LDIyLTkzLDMxQzU0Ljc4LDEyMy4yNSwzMCwxMTMuMTQsMCwxMDIuMTRaIiBzdHlsZT0iZmlsbDojZmZmO29wYWNpdHk6MC4zMDAwMDAwMDAwMDAwMDAwNCIvPjxwYXRoIGQ9Ik0wLDEwNC4xNHYxMGMyMiw5LDQxLjIzLDEwLjI2LDU4LjgsMTAsNDguNzgtLjc2LDg0Ljc2LTI2LjY1LDEzMS4yLTM0bDEtNGMtNDQuNCw2LjI2LTQ1LDIyLTkzLDMxQzU0Ljc4LDEyNS4yNSwzMCwxMTUuMTQsMCwxMDQuMTRaIiBzdHlsZT0iZmlsbDojZmZmO29wYWNpdHk6MC4zMDAwMDAwMDAwMDAwMDAwNCIvPjwvc3ZnPg==";
-            break;
-          case "2":
-            elem.options.style =
-              elem.options.prefix +
-              "MTIwIj48dGl0bGU+QXNzZXQgMTY0PC90aXRsZT48cGF0aCBkPSJNNTY3LjY3LDMxLjE0Yy0yNi4yMiwxNy4zNi01MCwzNi41NS04MS44LDUwQzQzNy41MiwxMDEuNDgsMzc1LjUyLDEwNi4yMSwzMTcsMTAzLjIzcy0xMTUuNDItMTMtMTczLjE1LTE5LjU2Qzk2LjQ3LDc4LjI1LDQ3LjE4LDc1LjE4LDAsODAuMDd2MzIuNDFINjMwVjBDNjA2LjQ0LDcuNTIsNTg1Ljg5LDE5LjA5LDU2Ny42NywzMS4xNFoiIHN0eWxlPSJmaWxsOiNmZmY7b3BhY2l0eTowLjY0Ii8+PHBhdGggZD0iTTU2Ny42NywzOC42N2MtMjYuMjIsMTcuMzUtNTAsMzYuNTUtODEuOCw1MEM0MzcuNTIsMTA5LDM3NS41MiwxMTMuNzMsMzE3LDExMC43NXMtMTE1LjQyLTEzLTE3My4xNS0xOS41NkM5Ni40Nyw4NS43Nyw0Ny4xOCw4Mi43LDAsODcuNTlWMTIwSDYzMFY3LjUyQzYwNi40NCwxNSw1ODUuODksMjYuNjEsNTY3LjY3LDM4LjY3WiIgc3R5bGU9ImZpbGw6I2ZmZiIvPjwvc3ZnPg==";
-            break;
-          case "3":
-            elem.options.style =
-              elem.options.prefix +
-              "NjAiPjx0aXRsZT5Bc3NldCAxNzI8L3RpdGxlPjxwYXRoIGQ9Ik0wLDAsNDAwLDUzLjIzLDYzMCwwVjYwSDBaIiBzdHlsZT0iZmlsbDojZmZmIi8+PC9zdmc+";
-            break;
-          case "4":
-            elem.options.style =
-              elem.options.prefix +
-              "ODAiPjx0aXRsZT40PC90aXRsZT48cGF0aCBkPSJNMjYxLjIsNjQuOUMzNjcuNiw1NC43LDQ5OS42LDM5LjcsNjMwLDE4LjVWMEM0OTcuOCwzMS40LDM2My43LDUyLDI2MS4yLDY0LjlaIiBzdHlsZT0iZmlsbDojZmZmO29wYWNpdHk6MC4zMDAwMDAwMDAwMDAwMDAwNCIvPjxwYXRoIGQ9Ik0yNjEuMiw2NC45Yy00MSwzLjktNzguMiw3LjEtMTEwLDkuNiwxMy4yLS40LDI3LS45LDQxLjUtMS42QzMxNSw2Ny43LDQ3OC40LDU5LjQsNjMwLDM0LjhWMTguNUM0OTkuMSwzOS44LDM2Ny4zLDU0LjgsMjYxLjIsNjQuOVoiIHN0eWxlPSJmaWxsOiNmZmY7b3BhY2l0eTowLjYwMDAwMDAwMDAwMDAwMDEiLz48cGF0aCBkPSJNMTkyLjcsNzIuOWMtMTQuNS43LTI4LjMsMS4yLTQxLjUsMS42QzU5LjksNzcuNywwLDc3LjQsMCw3Ny40VjgwSDYzMFYzMy44QzQ3OC40LDU4LjQsMzE1LDY3LjcsMTkyLjcsNzIuOVoiIHN0eWxlPSJmaWxsOiNmZmYiLz48L3N2Zz4=";
-            break;
-          case "5":
-            elem.options.style =
-              elem.options.prefix +
-              "MTAwIj48dGl0bGU+QXNzZXQgMTczPC90aXRsZT48cGF0aCBkPSJNMCw1Ni44NGwxMDgsMzlMNDY4LDAsNjMwLDY4LjQyVjEwMEgwWiIgc3R5bGU9ImZpbGw6I2ZmZiIvPjwvc3ZnPg==";
-            break;
-          case "6":
-            elem.options.style =
-              elem.options.prefix +
-              "MTIwIj48dGl0bGU+NjwvdGl0bGU+PHBhdGggZD0iTTYxNS41LDIuNWMtNDEuMyw1LjgtNzcuNCwxMi43LTExNiwxMy43LTIyLjIuNi00NC44LTMuMy02Ny4yLjQtNDguOCw4LjEtMTA3LjgsNDMuNS0xNTcuNyw2Mi42LTQyLjQsMTYuMi02OS45LDE2LTk4LjcsMy44LTIxLjEtOS00Mi4xLTIyLjktNjUuMi0zMy4xLTI5LjQtMTMtNjIuNC0yNC4yLTk4LjktMTIuM2wtMS4xLjNMMCw0MS42VjUzLjhsMTAuNy0zLjYsMS4xLS40YzQyLjEtMTMuNyw2My4xLTUuNiw5OC45LDUuNiwyMi43LDcsNDQuMSwyMCw2NS4yLDI4LjksMzAuOSwxMy4xLDU1LjgsMTMsOTguNy0xLDQ5LjktMTYuNCwxMDguOS01MS44LDE1Ny43LTU5LjksMjIuNC0zLjcsNDUuMi00LjUsNjcuMi0uNCwzNy44LDcuMiw3NC43LDcuMSwxMTYsMS4zLDUtLjcsOS44LTEuNSwxNC41LTIuNVYwQzYyNS4zLDEsNjIwLjUsMS45LDYxNS41LDIuNVoiIHN0eWxlPSJmaWxsOiNmZmY7b3BhY2l0eTowLjM1MDAwMDAwMDAwMDAwMDAzIi8+PHBhdGggZD0iTTQ5OS41LDIzYy0yMi00LjEtNDQuOC0zLjMtNjcuMi40LTQ4LjgsOC4xLTEwNy44LDQzLjUtMTU3LjcsNTkuOS00Mi45LDE0LTY3LjgsMTQuMS05OC43LDEtMjEuMS04LjktNDIuNS0yMS45LTY1LjItMjguOUM3NC45LDQ0LjIsNTMuOSwzNi4xLDExLjgsNDkuOGwtMS4xLjRMMCw1My44VjYybDEwLjctMy42LDEuMS0uNGMzNi41LTExLjksNjguOC04LDk4LjksMS40LDIyLjcsNy4xLDQ0LjEsMTcuMyw2NS4yLDI2LjMsMjguOCwxMi4yLDU1LjcsMTIuOSw5OS4xLDIuOSw1Mi41LTEyLjEsMTA3LjEtNTEuNywxNTUuOS01OS44LDIyLjMtMy44LDQ2LjYtMS44LDY4LjYsMi40LDM3LjgsNy4xLDc0LjcsMjIsMTE2LDE2LjMsNS0uNyw5LjgtMS42LDE0LjUtMi42VjIxLjhjLTQuNywxLTkuNSwxLjgtMTQuNSwyLjVDNTc0LjIsMzAuMSw1MzcuMywzMC4yLDQ5OS41LDIzWiIgc3R5bGU9ImZpbGw6I2ZmZjtvcGFjaXR5OjAuNSIvPjxwYXRoIGQ9Ik00OTkuNSwzMS4yYy0yMi00LjItNDYuMy02LjItNjguNi0yLjRDMzgyLjEsMzYuOSwzMjcuNSw3Ni41LDI3NSw4OC42Yy00My40LDEwLTcwLjMsOS4zLTk5LjEtMi45LTIxLjEtOS00Mi41LTE5LjItNjUuMi0yNi4zQzgwLjYsNTAsNDguMyw0Ni4xLDExLjgsNThsLTEuMS40TDAsNjJ2NThINjMwVjQ0LjljLTQuNywxLTkuNSwxLjktMTQuNSwyLjZDNTc0LjIsNTMuMiw1MzcuMywzOC4zLDQ5OS41LDMxLjJaIiBzdHlsZT0iZmlsbDojZmZmIi8+PC9zdmc+";
-            break;
-          case "7":
-            elem.options.style =
-              elem.options.prefix +
-              "MTIwIj48dGl0bGU+QXNzZXQgMTc0PC90aXRsZT48cGF0aCBkPSJNMCwwLDYzMCwxMjBIMFoiIHN0eWxlPSJmaWxsOiNmZmYiLz48L3N2Zz4=";
-            break;
-          case "8":
-            elem.options.style =
-              elem.options.prefix +
-              "MTIwIj48dGl0bGU+ODwvdGl0bGU+PHBhdGggZD0iTTQ1Ni43LDUzLjZDNDM5LjgsNDIuOSwzOTYuOSwxLjgsMzQzLjIsMzAuMWMtMzUuNywxOC43LTg0LDcxLjUtMTI3LjgsNzEuOS0zNi4xLjMtNTcuOC0yMC4yLTgxLjQtMzUuMS0xNy4zLTExLTM1LTIzLjUtNTMuNi0zMi4yQzU1LjYsMjMuMiwzMCwxMS44LjEsMjYuNGMtLjMuMSwwLDkzLjYsMCw5My42SDYzMFYzMS44Yy0zLjksMS4zLTEzLDE3LjMtNjUuMiwzMi44QzUzMy4zLDc2LjQsNDkyLjQsNzYuNCw0NTYuNyw1My42WiIgc3R5bGU9ImZpbGw6I2ZmZiIvPjxnIHN0eWxlPSJvcGFjaXR5OjAuMzgiPjxwYXRoIGQ9Ik02MTEsNjMuNmwtMiw0Mi44LTUyNy45LDUtODEtMS4xVjYxLjhhMTk0LjcsMTk0LjcsMCwwLDAsMjQuNyw5LjQsMTQ2LjgsMTQ2LjgsMCwwLDAsNDMuOSw2LjJDOTQuNiw3Ny4zLDEyMC41LDY1LDE0Niw1MC41YzE4LjctMTAuNiwzNy4xLTIyLjMsNTUuMi0zMS4zQzIxMy43LDEyLjksMjI2LDgsMjM4LjEsNS43YzI0LjMtNC42LDUxLjQtMy4yLDcyLjUsNy45bDM2LjcsMTkuNmMzNy4zLDE5LjksNzMuMSwzOC45LDEwNC4yLDUxLjdDNDY1LjQsOTAuNiw0NzguMyw5NS4yLDQ5MCw5OGMxMy4zLDMuMywyNS4xLDQuNSwzNSwyLjlhNzUuNSw3NS41LDAsMCwwLDkuMy0zLjdsNy40LTMuM2MxNS40LTcuMSwzOC44LTE5LjEsNTkuNi0zMy4yLDUuNS0zLjcuNi40LDUuNy0zLjRDNjE5LDQ4LjIsNjA4LjcsNjQuMiw2MTEsNjMuNloiIHN0eWxlPSJmaWxsOiNmZmYiLz48L2c+PHBhdGggZD0iTTU4MS44LDExLjRDNTUyLC4yLDUzMS41LDMuOSw1MDcuMiw4LjQsNDcyLjEsMTUsNDM0LjcsNDQuMSwzOTYuNiw2My4yYy0xNi4zLDguMS0zMi44LDE0LjQtNDkuMiwxNi4zLTE1LjgtNS40LTMyLTEyLjItNDcuNi0xOS4yLTM3LjktMTcuMS03Mi42LTM1LjctOTEuOS0zOS44bC02LjctMS4zYy0yMi4yLTQuMi00NS45LTUuOC02Ny45LTEuNy0xMC40LDItMjEsNS45LTMxLjgsMTFDNzYuNiw0MC4yLDUwLjksNTcuOSwyNC44LDcxLjJBMjEzLjYsMjEzLjYsMCwwLDEsLjEsODIuMXYzMC44bDgxLTEuNSwzMTIuMy01LjcsMS40LjNMNjMwLDExMS44di04MEM2MTMsMjYuNCw2MTkuMywyNS41LDU4MS44LDExLjRaIiBzdHlsZT0iZmlsbDojZmZmO29wYWNpdHk6MC40OSIvPjxnIHN0eWxlPSJvcGFjaXR5OjAuMzgiPjxwYXRoIGQ9Ik01NDUuNCw5N2wtMTEuMS4yTDQ5MCw5OCwuMSwxMDcuMVYwQzIxLjMtLjQsNDEuMyw0LjEsNjAuNCwxMC44YTQwMy43LDQwMy43LDAsMCwxLDQxLjEsMTcuN2MxMCw0LjksMTkuOSw5LjksMjkuNywxNC42LDUsMi4zLDkuOSw0LjksMTQuOCw3LjQsMjYuMSwxMy41LDUyLjcsMjgsOTIuOSwyNy44LDIwLjMtLjEsNDAuNy03LjcsNjAuOS0xOCwxNi04LjIsMzEuOS0xOCw0Ny41LTI3LjEsMjAuOS0xMi4xLDQxLjMtMjIuOSw2MC45LTI2LjZDNDMyLjUsMiw0ODEuMSw4LjYsNTA0LDE4czQ5LjYsMjMuNiw5Ny4zLDQyLjdDNjIwLjIsNjguNCw1NDUuNCw5Nyw1NDUuNCw5N1oiIHN0eWxlPSJmaWxsOiNmZmYiLz48L2c+PC9zdmc+";
-            break;
-          case "9":
-            elem.options.style =
-              elem.options.prefix +
-              "MTAwIj48dGl0bGU+QXNzZXQgMTgyPC90aXRsZT48cGF0aCBkPSJNMCw0NS42NVMxNTksMCwzMjIsMCw2MzAsNDUuNjUsNjMwLDQ1LjY1VjEwMEgwWiIgc3R5bGU9ImZpbGw6I2ZmZiIvPjwvc3ZnPg==";
-            break;
-          case "10":
-            elem.options.style =
-              elem.options.prefix +
-              "MTIwIj48dGl0bGU+MTA8L3RpdGxlPjxwYXRoIGQ9Ik0wLDEwOC4xSDYzMFYwUzQ3NSwxMDQuNiwzMTQsMTA0LjYsMCwwLDAsMFoiIHN0eWxlPSJmaWxsOiNmZmY7b3BhY2l0eTowLjIyIi8+PHBhdGggZD0iTTAsMTA2LjlINjMwVjE3LjhzLTE1NSw4Ny45LTMxNiw4Ny45UzAsMTksMCwxOVoiIHN0eWxlPSJmaWxsOiNmZmY7b3BhY2l0eTowLjM2Ii8+PHBhdGggZD0iTTAsMTIwSDYzMFY0NS4xcy0xNTUsNjEuOC0zMTYsNjEuOFMwLDQ1LjEsMCw0NS4xWiIgc3R5bGU9ImZpbGw6I2ZmZiIvPjwvc3ZnPg==";
-            break;
-          case "11":
-            elem.options.style =
-              elem.options.prefix +
-              "MTIwIj48dGl0bGU+MTE8L3RpdGxlPjxwYXRoIGQ9Ik01MTAuNywyLjljLTk4LjksMjEuOS0yMjIuMyw4NS41LTMyMiw4NS41QzgwLjEsODguNCwyNC4xLDU2LjEsMCwzNi40VjEyMEg2MzBWMTUuMkM2MDIuNCw2LjksNTUwLjEtNS44LDUxMC43LDIuOVoiIHN0eWxlPSJmaWxsOiNmZmYiLz48L3N2Zz4=";
-            break;
-          case "12":
-            elem.options.style =
-              elem.options.prefix +
-              "MTIwIj48dGl0bGU+MTI8L3RpdGxlPjxwYXRoIGQ9Ik02MzAsMzQuNWE1NCw1NCwwLDAsMS05LDIuM0M1NzguMyw0Ni4xLDU1Ni4xLDI0LDUxNy4yLDEyLjVjLTIyLjktNi43LTQ3LjktOS44LTcxLTMuOUMzOTUuOCwyMS43LDM0MC4zLDEwMiwyODUuMSwxMDIuNGMtNDUuNC4zLTcyLjYtMjYuNS0xMDIuMy00Ni4xLTIxLjgtMTQuNC00NC0zMC44LTY3LjQtNDIuMUM4NC4yLS45LDUwLjktNy4yLDEzLjIsMTEuOGwtMS4yLjZjLTMuNSwxLjktOC4yLDMuOS0xMiw1LjlWMTIwSDYzMFoiIHN0eWxlPSJmaWxsOiNmZmYiLz48L3N2Zz4=";
-            break;
-          case "13":
-            elem.options.style =
-              elem.options.prefix +
-              "OTAiPjx0aXRsZT4xMzwvdGl0bGU+PHBhdGggZD0iTTYzMCw5MEgxTDAsMFMxMzEsNzYuNiwzNjYsMzQuMmMxMjAtMjEuNywyNjQsNC41LDI2NCw0LjVaIiBzdHlsZT0iZmlsbDojZmZmO29wYWNpdHk6MC4xNiIvPjxwYXRoIGQ9Ik0xLDkwSDYzMFYwUzQ4OSw3NC4zLDI1NCwzMS45QzEzNCwxMC4zLDAsMzMsMCwzM1oiIHN0eWxlPSJmaWxsOiNmZmY7b3BhY2l0eTowLjIiLz48cGF0aCBkPSJNMCw5MEg2MzBWMTguMlM0NzUsNzcuNSwzMTQsNzcuNSwwLDE4LjIsMCwxOC4yWiIgc3R5bGU9ImZpbGw6I2ZmZiIvPjwvc3ZnPg==";
-            break;
-          case "14":
-            elem.options.style =
-              elem.options.prefix +
-              "NjAiPjx0aXRsZT5Bc3NldCAxNzg8L3RpdGxlPjxwYXRoIGQ9Ik0wLDAsMTEzLDE5LDU4MiwyOS40Nyw2MzAsMFY2MEgwWiIgc3R5bGU9ImZpbGw6I2ZmZiIvPjwvc3ZnPg==";
-            break;
-          case "15":
-            elem.options.style =
-              elem.options.prefix +
-              "ODAiPjx0aXRsZT5Bc3NldCAxNzc8L3RpdGxlPjxwYXRoIGQ9Ik0zMTUsMCw2MzAsODBIMFoiIHN0eWxlPSJmaWxsOiNmZmYiLz48L3N2Zz4=";
-            break;
-          case "16":
-            elem.options.style =
-              elem.options.prefix +
-              "ODAiPjx0aXRsZT4xNjwvdGl0bGU+PHBhdGggZD0iTTAsODBTMjA4LDAsMzE1LDAsNjMwLDgwLDYzMCw4MFoiIHN0eWxlPSJmaWxsOiNmZmYiLz48L3N2Zz4=";
-            break;
-          case "17":
-            elem.options.style =
-              elem.options.prefix +
-              "MTIwIj48dGl0bGU+MTc8L3RpdGxlPjxwYXRoIGQ9Ik0zMjAsMTZjODguNCwyLDMxMCwxMDQsMzEwLDEwNFM1NjkuNiw4Ny4zLDQ5OS41LDU2Yy0xOS43LTguOC00MC4xLTE3LjUtNjAuMi0yNS4zQzM5NS4yLDEzLjYsMzUyLjcuNywzMjQsMCwyMzUtMiwwLDEyMCwwLDEyMGwxNC4xLTUuNUM2Mi41LDkyLjgsMjQzLjMsMTQuMywzMjAsMTZaIiBzdHlsZT0iZmlsbDojZmZmO29wYWNpdHk6MC4zMSIvPjxwYXRoIGQ9Ik0xNC4xLDExNC41QzY0LjksOTUsMjM5LjQsMzAuMywzMTUsMzJjODguNCwyLDMxNSw4OCwzMTUsODhTNDA4LjQsMTgsMzIwLDE2QzI0My4zLDE0LjMsNjIuNSw5Mi44LDE0LjEsMTE0LjVaIiBzdHlsZT0iZmlsbDojZmZmO29wYWNpdHk6MC40MyIvPjxwYXRoIGQ9Ik0xNC4xLDExNC41QzY0LjksOTUsMjM5LjQsMzAuMywzMTUsMzJjODguNCwyLDMxNSw4OCwzMTUsODhTNDA4LjQsMTgsMzIwLDE2QzI0My4zLDE0LjMsNjIuNSw5Mi44LDE0LjEsMTE0LjVaIiBzdHlsZT0iZmlsbDojZmZmO29wYWNpdHk6MC4zMSIvPjxwYXRoIGQ9Ik0zMTUsMzJDMjM5LjQsMzAuMyw2NC45LDk1LDE0LjEsMTE0LjVMMiwxMjBINjMwUzQwMy40LDM0LDMxNSwzMloiIHN0eWxlPSJmaWxsOiNmZmYiLz48L3N2Zz4=";
-            break;
-          case "18":
-            elem.options.style =
-              elem.options.prefix +
-              "NDAiPjx0aXRsZT5Bc3NldCAxNzk8L3RpdGxlPjxwYXRoIGQ9Ik0wLDE4LjEsNTMsMS45LDEwMywyMGw1OS05LjUyLDU2LDE1LjIzLDcyLTcuNjEsNDYsNC43NiwzNC00Ljc2LDM2LDguNTcsNzYtMTksODUsMTUuMjRMNjMwLDBWMzcuMTRIMFoiIHN0eWxlPSJmaWxsOiNmZmY7b3BhY2l0eTowLjQ3MDAwMDAwMDAwMDAwMDAzIi8+PHBhdGggZD0iTTAsMjAsNTMsMy44MSwxMDMsMjEuOWw1OS05LjUyLDU2LDE1LjI0TDI5MCwyMGw0Niw0Ljc2TDM3MCwyMGwzNiw5LjUyLDc2LTE3LjE0LDg1LDE2LjE5LDYzLTE2LjE5VjQwSDBaIiBzdHlsZT0iZmlsbDojZmZmIi8+PC9zdmc+";
-            break;
-          case "19":
-            elem.options.style =
-              elem.options.prefix +
-              "ODAiPjx0aXRsZT4xOTwvdGl0bGU+PHBhdGggZD0iTTYzMCwzNi45YTM0LjYsMzQuNiwwLDAsMC0xNi41LTQuMmMtMTcuMiwwLTMxLjgsMTIuNy0zNi43LDMwLjNhMjEuMiwyMS4yLDAsMCwwLTkuMy0yLjIsMjEuOCwyMS44LDAsMCwwLTEzLjksNS4xLDM4LjcsMzguNywwLDAsMC00MC40LTQuOGMtNS4yLTcuNy0xMy40LTEyLjYtMjIuNy0xMi42YTI1LjcsMjUuNywwLDAsMC04LjcsMS41QzQ3Mi45LDI3LjgsNDUzLDEyLjQsNDMwLDEyLjRzLTQyLjcsMTUuMy01MS43LDM3LjJjLTcuMi0xMC45LTE4LjgtMTguMS0zMS44LTE4LjFhMzcsMzcsMCwwLDAtMjQsOS4yYy02LTEwLjMtMTYuMy0xNy0yOC0xNy0xMy44LDAtMjUuNiw5LjMtMzAuNywyMi43QTI2LjUsMjYuNSwwLDAsMCwyNDQsMzcuMmEyMiwyMiwwLDAsMC01LjguN2MtNC0xMS42LTE0LTE5LjktMjUuNy0xOS45YTI0LjcsMjQuNywwLDAsMC05LjQsMS45QzE4OS4yLDcuNCwxNzEuNiwwLDE1Mi41LDAsMTI0LjYsMCwxMDAsMTUuOCw4NS4zLDM5LjlBMjcuNiwyNy42LDAsMCwwLDYzLDI4LjJhMjMuOSwyMy45LDAsMCwwLTcuMSwxQzQ3LjIsMTMsMzEuNSwyLjMsMTMuNSwyLjNBNDMuMyw0My4zLDAsMCwwLDAsNC40VjgwSDYzMFoiIHN0eWxlPSJmaWxsOiNmZmYiLz48L3N2Zz4=";
-            break;
-          case "20":
-            elem.options.style =
-              elem.options.prefix +
-              "MTAwIj48dGl0bGU+QXNzZXQgMTgwPC90aXRsZT48cGF0aCBkPSJNNjMwLDYwLjgyVjEwMEgwVjk1Ljg4bDExLjkxLTYuNDlMODQsNDMuMzRsMzYuNDksMjQuNDVMMTYwLDQ2LDIzMi4wNSwwbDQ5LjA3LDMyLjg5LDM0LjA3LDI5LjU5LDY4LjI5LDI3Ljc1TDQyMyw2NWw0Mi4yLDI4LjI5LDE4LjM5LTE2LDQ5LjA3LTMyLjg5TDU5NCw4My42MSw2MjgsNjEuOVoiIHN0eWxlPSJmaWxsOiNmZmYiLz48L3N2Zz4=";
-            break;
-        }
-        var decodeSvg = atob(elem.options.style);
-        var wrapper = document.createElement("div");
-        wrapper.innerHTML = decodeSvg;
-        var svg = wrapper.firstChild;
-        var paths = svg.getElementsByTagName("path");
-        [].forEach.call(paths, function(path) {
-          path.style.fill = elem.options.color;
-        });
-        if ($body.hasClass("b--desktop")) {
-          svg.setAttribute("preserveAspectRatio", "none");
-          if (elem.options.height) {
-            svg.setAttribute("style", "height:" + elem.options.height + "px");
-          } else {
-            svg.setAttribute("preserveAspectRatio", "none");
-            svg.setAttribute("style","height:" + Number(svg.height.baseVal.value).toFixed() / 1.2 + "px");
-          }
-        } else {
-          svg.setAttribute("preserveAspectRatio", "none");
-          svg.setAttribute("style","height:" + Number(svg.height.baseVal.value).toFixed() / 1.2 + "px");
-        }
-        $(".shape-divider svg title").remove();
-        elem.css({
-          "z-index": elem.options.zIndex,
-          opacity: elem.options.opacity
-        });
-        elem.append(svg);
-      });
-    },
-    responsiveVideos: function() {
-      //selecting elements
-      var selectors = [
-        'iframe[src*="player.vimeo.com"]',
-        'iframe[src*="youtube.com"]',
-        'iframe[src*="youtube-nocookie.com"]',
-        'iframe[src*="kickstarter.com"][src*="video.html"]',
-        "object",
-        "embed"
-      ];
-      var videoContainers = $(
-        "section, .content, .post-content, .video-js, .post-video, .video-wrap, .ajax-quick-view,#slider:not(.revslider-wrap)"
-      );
-      var elem = videoContainers.find(selectors.join(","));
-      if (elem) {
-        elem.each(function() {
-          $(this).wrap(
-            '<div class="embed-responsive embed-responsive-16by9"></div>'
-          );
         });
       }
     },
@@ -1700,120 +1221,10 @@ var INSPIRO = {},
         });
       }
     },
-    countdownTimer: function() {
-      var $countdownTimer = $(".countdown");
-      if ($countdownTimer.length > 0) {
-        //Check if countdown plugin is loaded
-        if (typeof $.fn.countdown === "undefined") {
-          INSPIRO.elements.notification(
-            "Warning",
-            "jQuery countdown plugin is missing in plugins.js file.",
-            "danger"
-          );
-          return true;
-        }
-        $("[data-countdown]").each(function() {
-          var $this = $(this),
-            finalDate = $(this).attr("data-countdown");
-          $this.countdown(finalDate, function(event) {
-            $this.html(
-              event.strftime(
-                '<div class="countdown-container"><div class="countdown-box"><div class="number">%-D</div><span>Day%!d</span></div>' +
-                  '<div class="countdown-box"><div class="number">%H</div><span>Hours</span></div>' +
-                  '<div class="countdown-box"><div class="number">%M</div><span>Minutes</span></div>' +
-                  '<div class="countdown-box"><div class="number">%S</div><span>Seconds</span></div></div>'
-              )
-            );
-          });
-        });
-      }
-    },
-    countdown: function() {
-      var $countdown = $(".p-countdown");
-      if ($countdown.length > 0) {
-        $countdown.each(function() {
-          var $elem = $(this),
-            $elemCount = $elem.find(".p-countdown-count"),
-            $elemShow = $elem.find(".p-countdown-show"),
-            $elemSeconds = $elem.attr("data-delay") || 5;
-          $elemCount.find(".count-number").html($elemSeconds);
-          new Waypoint({
-            element: $elem,
-            handler: function() {
-              var interval = setInterval(function() {
-                $elemSeconds--;
-                if ($elemSeconds == 0) {
-                  clearInterval(interval);
-                  $elemCount.fadeOut("slow");
-                  setTimeout(function() {
-                    $elemShow.fadeIn("show");
-                  }, 1000);
-                } else {
-                  $elemCount.find(".count-number").html($elemSeconds);
-                }
-              }, 1000);
-              this.destroy();
-            },
-            offset: "100%"
-          });
-        });
-      }
-    },
   };
   INSPIRO.widgets = {
     functions: function() {
-      INSPIRO.widgets.twitter();
       INSPIRO.widgets.flickr();
-      INSPIRO.widgets.instagram();
-      INSPIRO.widgets.subscribeForm();
-    },
-    twitter: function() {
-      var $widget_twitter = $(".widget-tweeter") || $(".widget-twitter");
-      if ($widget_twitter.length > 0) {
-        //Check if twittie plugin is loaded
-        if (typeof $.fn.twittie === "undefined") {
-          INSPIRO.elements.notification(
-            "Warning",
-            "jQuery twittie plugin is missing in plugins.js file.",
-            "danger"
-          );
-          return true;
-        }
-        var t = setTimeout(function() {
-          $widget_twitter.each(function() {
-            var elem = $(this),
-              twitterUsername = elem.attr("data-username") || "ardianmusliu",
-              twitterLimit = elem.attr("data-limit") || 2,
-              twitterDateFormat = elem.attr("data-format") || "%b/%d/%Y",
-              twitterLoadingText =
-                elem.attr("data-loading-text") || "Loading...",
-              twitterApiPAth =
-                elem.attr("data-loader") || "include/twitter/tweet.php",
-              twitterAvatar = elem.attr("data-avatar") || false;
-            if (twitterAvatar == "true") {
-              twitterAvatar = "{{avatar}}";
-            } else {
-              twitterAvatar = "";
-            }
-            elem.append('<div id="twitter-cnt"></div>');
-            elem.find("#twitter-cnt").twittie(
-              {
-                username: twitterUsername,
-                count: twitterLimit,
-                dateFormat: twitterDateFormat,
-                template: twitterAvatar + "{{tweet}}<small>{{date}}</small>",
-                apiPath: twitterApiPAth,
-                loadingText: twitterLoadingText
-              },
-              function() {
-                if (elem.parents(".grid-layout").length > 0) {
-                  elem.parents(".grid-layout").isotope("layout");
-                }
-              }
-            );
-          });
-        }, 2000);
-      }
     },
     flickr: function() {
       var $flickr_widget = $(".flickr-widget");
@@ -1864,112 +1275,6 @@ var INSPIRO = {},
         });
       }
     },
-    instagram: function() {
-      var $widget_instagram = $(".widget-instagram");
-      if ($widget_instagram.length > 0) {
-        //Check if spectragram plugin is loaded
-        if (typeof $.fn.spectragram === "undefined") {
-          INSPIRO.elements.notification(
-            "Warning",
-            "jQuery spectragram plugin is missing in plugins.js file.",
-            "danger"
-          );
-          return true;
-        }
-        $widget_instagram.each(function() {
-          var elem = $(this),
-            instagramLimit = elem.attr("data-limit") || 12,
-            instagramColumns = elem.attr("data-col") || 3,
-            instagramAccessToken =
-              elem.attr("data-token") ||
-              "5783726529.226c7d2.68a168eec1264759b9f91c1fc2c6ce56",
-            instagramItems = "#instagram-cnt",
-            instagramSize = elem.attr("data-size") || "small", //The size of the photos. 'small', 'medium' or 'big'. Default: 'medium'
-            instagramGridColumns = "grid-" + instagramColumns;
-          elem.append(
-            '<div id="instagram-cnt" class="' +
-              instagramGridColumns +
-              '"></div>'
-          );
-          jQuery.fn.spectragram.accessData = {
-            accessToken: instagramAccessToken
-          };
-          elem.find($(instagramItems)).spectragram("getUserFeed", {
-            size: instagramSize,
-            max: instagramLimit,
-            wrapEachWith: "",
-            complete: function() {
-              elem.addClass("widget-instagram-loaded");
-              if (elem.parents(".grid-layout").length > 0) {
-                elem.parents(".grid-layout").isotope("layout");
-              }
-            }
-          });
-        });
-      }
-    },
-    subscribeForm: function() {
-      var $subscribeForm = $(".widget-subscribe-form");
-      if ($subscribeForm.length > 0) {
-        $subscribeForm.each(function() {
-          var elem = $(this),
-            elemSuccessMessage =
-              elem.attr("success-message") ||
-              "You have successfully subscribed to our mailing list.";
-          var addonIcon = elem.find("#widget-subscribe-submit-button"),
-            addonIconText = addonIcon.html();
-          elem.submit(function(event) {
-            event.preventDefault();
-            var post_url = $(this).attr("action");
-            var request_method = $(this).attr("method");
-            var form_data = $(this).serialize();
-            if (elem[0].checkValidity() === false) {
-              event.stopPropagation();
-              elem.addClass("was-validated");
-            } else {
-              $(elem).removeClass("was-validated");
-              addonIcon.html('<i class="icon-loader fa-spin"></i>');
-              $.ajax({
-                url: post_url,
-                type: request_method,
-                data: form_data,
-                dataType: "json",
-                success: function(text) {
-                  if (text.response == "success") {
-                    $.notify(
-                      {
-                        message: elemSuccessMessage
-                      },
-                      {
-                        type: "success"
-                      }
-                    );
-                    $(elem)[0].reset();
-                    $(elem).removeClass("was-validated");
-                    addonIcon.html(addonIconText);
-                  } else {
-                    $.notify(
-                      {
-                        message: text.message
-                      },
-                      {
-                        type: "warning"
-                      }
-                    );
-                    $(elem)[0].reset();
-                    $(elem).removeClass("was-validated");
-                    addonIcon.html(addonIconText);
-                  }
-                },
-                done: function() {
-                  addonIcon.html(addonIconText);
-                }
-              });
-            }
-          });
-        });
-      }
-    }
   };
   //Load Functions on document ready
   $(document).ready(function() {
