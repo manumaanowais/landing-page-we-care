@@ -134,15 +134,7 @@ body.dark {
     #topbar .social-icons li a {
       float: left;
       list-style: outside none none; }
-    #topbar .social-icons li a {
-      border-radius: 0px;
-      font-size: 15px;
-      height: 40px;
-      line-height: 40px;
-      text-align: center;
-      width: 35px;
-      overflow: hidden;
-      margin: 0; }
+    
   #topbar.dark {
     background-color: #1f1f1f; }
     #topbar.dark .top-menu > li > a,
@@ -228,46 +220,7 @@ body.dark {
       color: #222; }
     .topbar-dropdown .list-entry:first-child {
       border-top: none; }
-  .topbar-dropdown .topbar-form {
-    position: absolute;
-    width: 240px;
-    padding: 20px 20px 10px 20px;
-    right: auto;
-    top: 40px;
-    border-radius: 3px;
-    background-color: #ffffff;
-    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border: solid 1px #eee;
-    z-index: 1;
-    text-align: left;
-    opacity: 0;
-    -moz-transition: all 300ms ease-out;
-    -o-transition: all 300ms ease-out;
-    -webkit-transition: all 300ms ease-out;
-    transition: all 300ms ease-out;
-    -ms-transition: all 300ms ease-out;
-    transform-origin: 50% 0% 0px;
-    -moz-transform-origin: 50% 0% 0px;
-    -webkit-transform-origin: 50% 0% 0px;
-    -ms-transform-origin: 50% 0% 0px;
-    visibility: hidden; }
-  .topbar-dropdown input {
-    margin-bottom: 2px; }
-  .topbar-dropdown .form-group {
-    margin-bottom: 10px; }
-  .topbar-dropdown .checkbox {
-    display: inline-block;
-    margin-bottom: 0;
-    margin-top: 0;
-    vertical-align: middle;
-    margin-top: -12px; }
-  .topbar-dropdown.float-right .title {
-    padding: 0 0px 0 20px !important; }
-  .topbar-dropdown .dropdown-invert.topbar-form {
-    left: auto;
-    right: -20px; }
-
+  
 #topbar.topbar-fullwidth > .container {
   max-width: 100%;
   padding: 0 30px; }
