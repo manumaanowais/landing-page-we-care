@@ -62,6 +62,10 @@
             width: -webkit-fill-available
         }
 
+        .dnone {
+            display: none;
+        }
+
         @media only screen and (min-width:1px) and (max-width:520px) {
             .contact_whatsapp {
                 width: 50px;
@@ -96,6 +100,10 @@
             .webkitFillImage {
                 width: 300px;
             }
+
+            .dnone {
+                display: inline-block;
+            }
         }
     </style>
 </head>
@@ -113,17 +121,18 @@
                 <div class="row" style="justify-content: space-between;">
                     <div>
                         <div style="margin:1rem 0;">
-                            <span class="quote lead text-center" style="color: white;">Customer Helpline</span>
+                            <span class="quote lead text-center" style="color: #ffffff;">Customer Helpline</span>
+                            <span class="sr-only">Toggle Menu</span>
                         </div>
                     </div>
                     <div class="col-md-6 d-sm-block">
                         <div class="contact">
                             <ul style="display: flex; gap:30px; list-style-type: none;">
-                                <li><a href="tel:+919666351433">
-                                        <p style="color: white; margin-bottom: 0">Talk to an expert now </p><i
+                                <li><a href="tel:+919666351433" style="color: #ffffff;">
+                                        <p style="color: #ffffff; margin-bottom: 0">Talk to an expert now </p><i
                                             class="fa fa-phone"></i> +91 9666351433
                                     </a></li>
-                                <li><a style="word-break: break-all;" href="mailto:wecarehomeservices5@gmail.com">Email
+                                <li><a style="word-break: break-all; color: #ffffff;" href="mailto:wecarehomeservices5@gmail.com">Email
                                         : <i class="fa fa-envelope"></i>wecarehomeservices5@gmail.com</a></li>
                             </ul>
                         </div>
@@ -131,7 +140,7 @@
                 </div>
             </div>
         </div>
-        <!-- end: Topbar -->
+                <!-- end: Topbar -->
 
         <!-- Header -->
         <header id="header" data-transparent="true" data-fullwidth="true" class="dark submenu-light">
@@ -147,7 +156,7 @@
                             <nav>
                                 <ul>
                                     <li><a href="index.html">Home</a></li>
-                                    <li class="dropdown"><a href="https://wecarehomeservices.in/services.html">Services<span><i class="fa fa-chevron-down" aria-hidden="true"></i></span></a>
+                                    <li class="dropdown"><a href="https://wecarehomeservices.in/services.html">Services<span class="dnone"><i class="fa fa-chevron-down" aria-hidden="true"></i></span></a>
                                         <ul class="dropdown-menu">
                                             <li><a href="https://wecarehomeservices.in/services.html#refrigerator">Refrigerator
                                                     Service</a></li>
