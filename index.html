@@ -13,113 +13,10 @@
     <link href="css/style.css" rel="stylesheet">
     <link rel="preload" href="https://img.freepik.com/premium-photo/handsome-worker-man-with-tool-background_488220-6477.jpg?w=740" as="image">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <style>
-        .contact_whatsapp {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            position: fixed;
-            bottom: 2%;
-            left: 2%;
-            z-index: 999999;
-        }
-        .contact_whatsapp img {
-            width: 100%;
-            height: 100%;
-        }
-        .carousel .polo-carousel-item .accordion-image-logo {
-            width: 35%;
-            aspect-ratio: 3/2;
-            object-fit: contain;
-            mix-blend-mode: color-burn;
-        }
-        .contact ul {
-            display: flex;
-            gap: 30px;
-            justify-content: end;
-            list-style-type: none;
-            margin-top: 1rem;
-        }
-        .contact ul li a {
-            color: white;
-        }
-        .contact ul li a:hover {
-            color: blue !important;
-        }
-        #topbar.topbar-colored,
-        #topbar.topbar-colored.dark {
-            background-color: black;
-        }
-        .webkitFillImage {
-            width: -webkit-fill-available
-        }
-        .dnone {
-            display: none;
-        }
-        .servicesDropdown {
-            display: inline !important;
-        }
-        .sticky-button {
-            position: fixed;
-            right: 0px;
-            top: 50%; 
-            transform: translateY(-50%);
-            background-color: black;
-            color: #fff;
-            padding: 5px;
-            border-radius: 5px;
-            cursor: pointer;
-            z-index: 9999;
-            outline: none;
-            border: none;
-        }
-        .rating i {
-            color:darkgoldenrod;
-        }
-        @media only screen and (min-width:1px) and (max-width:520px) {
-            .contact_whatsapp {
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-                position: fixed;
-                bottom: 2%;
-                left: 2%;
-                z-index: 999999;
-            }
-            .contact_whatsapp img {
-                width: 100%;
-                height: 100%;
-            }
-            .carousel .polo-carousel-item .accordion-image-logo {
-                width: 80%;
-                aspect-ratio: 3/2;
-                object-fit: contain;
-                mix-blend-mode: color-burn;
-            }
-            .quote {
-                font-size: 15px;
-            }
-            .contact ul {
-                justify-content: space-between;
-            }
-            .webkitFillImage {
-                width: 300px;
-            }
-            .dnone {
-                display: inline-block !important;
-            }
-            #mainMenu:not(.menu-overlay) nav > ul > li.dropdown:before {
-                display: none;
-            }
-            .servicesDropdown {
-                display: flex !important;
-                justify-content: space-between !important;
-            }
-            .customer {
-                font-size: 18px;
-            }
+        .contact_whatsapp{width:80px;height:80px;border-radius:50%;position:fixed;bottom:2%;left:2%;z-index:999999}.contact_whatsapp img{width:100%;height:100%}.carousel .polo-carousel-item .accordion-image-logo{width:35%;aspect-ratio:3/2;object-fit:contain;mix-blend-mode:color-burn}.contact ul{display:flex;gap:30px;justify-content:end;list-style-type:none;margin-top:1rem}.contact ul li a{color:#fff}.contact ul li a:hover{color:blue!important}#topbar.topbar-colored,#topbar.topbar-colored.dark{background-color:#000}.webkitFillImage{width:-webkit-fill-available}.dnone{display:none}.servicesDropdown{display:inline!important}.sticky-button{position:fixed;right:0;top:50%;transform:translateY(-50%);background-color:#000;color:#fff;padding:5px;border-radius:5px;cursor:pointer;z-index:9999;outline:none;border:none}.rating i{color:darkgoldenrod}@media only screen and (min-width:1px) and (max-width:520px){.contact_whatsapp{width:50px;height:50px;border-radius:50%;position:fixed;bottom:2%;left:2%;z-index:999999}.contact_whatsapp img{width:100%;height:100%}.carousel .polo-carousel-item .accordion-image-logo{width:80%;aspect-ratio:3/2;object-fit:contain;mix-blend-mode:color-burn}.quote{font-size:15px}.contact ul{justify-content:space-between}.webkitFillImage{width:300px}.dnone{display:inline-block!important}#mainMenu:not(.menu-overlay) nav>ul>li.dropdown:before{display:none}.servicesDropdown{display:flex!important;justify-content:space-between!important}.customer{font-size:18px}
         }
     </style>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -192,7 +89,7 @@
             </div>
         </header>
         <div id="slider" class="inspiro-slider slider-fullscreen dots-creative">
-            <div class="slide" style="background-color: black;">
+            <div class="slide"data-bg-image="https://img.freepik.com/premium-photo/handsome-worker-man-with-tool-background_488220-6477.jpg?w=740">
                 <div class="bg-overlay"></div>
                 <div class="container">
                     <div class="text-center text-light">
@@ -664,7 +561,6 @@
     </footer>
     </div>
     <a id="scrollTop"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
-    <script src="js/jquery.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/functions.js"></script>
 </body>
