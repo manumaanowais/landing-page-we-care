@@ -7,4 +7,4 @@ var INSPIRO={},$=jQuery.noConflict();!function(l){"use strict";var n,d=l(window)
 
 //script
 
-function sendMail(e){e.preventDefault();emailjs.sendForm('service_r8lj3qs','template_srli6yp','#enquiryForm').then((response)=>{console.log('SUCCESS!',response.status,response.text);Swal.fire({icon:'success',title:'Success!',text:'Enquiry Raised',});document.getElementById("enquiryForm").reset()},(error)=>{Swal.fire({icon:'error',title:'Oops...',text:'Something went wrong!',})},);return!1}
+function sendMail(e){e.preventDefault();emailjs.sendForm('service_6ct8w99','template_9su4e6o','#enquiryForm').then((response)=>{console.log('SUCCESS!',response.status,response.text);Swal.fire({icon:'success',title:'Success!',text:'Enquiry Raised',});document.getElementById("enquiryForm").reset()},(error)=>{Swal.fire({icon:'error',title:'Oops...',text:'Something went wrong!',})},);return!1}
