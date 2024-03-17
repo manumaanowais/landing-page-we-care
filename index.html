@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -11,20 +12,146 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>WE CARE HOME SERVICES | One Stop Solution For All AC, Refrigerator</title>
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/plugins.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <style>
-        .contact_whatsapp{width:80px;height:80px;border-radius:50%;position:fixed;bottom:2%;left:2%;z-index:999999}.contact_whatsapp img{width:100%;height:100%}.carousel .polo-carousel-item .accordion-image-logo{width:35%;aspect-ratio:3/2;object-fit:contain;mix-blend-mode:color-burn}.contact ul{display:flex;gap:30px;justify-content:end;list-style-type:none;margin-top:1rem}.contact ul li a{color:#fff}.contact ul li a:hover{color:blue!important}#topbar.topbar-colored,#topbar.topbar-colored.dark{background-color:#000}.webkitFillImage{width:-webkit-fill-available}.dnone{display:none}.servicesDropdown{display:inline!important}.sticky-button{position:fixed;right:0;top:50%;transform:translateY(-50%);background-color:#000;color:#fff;padding:5px;border-radius:5px;cursor:pointer;z-index:9999;outline:none;border:none}.rating i{color:darkgoldenrod}@media only screen and (min-width:1px) and (max-width:520px){.contact_whatsapp{width:50px;height:50px;border-radius:50%;position:fixed;bottom:2%;left:2%;z-index:999999}.contact_whatsapp img{width:100%;height:100%}.carousel .polo-carousel-item .accordion-image-logo{width:80%;aspect-ratio:3/2;object-fit:contain;mix-blend-mode:color-burn}.quote{font-size:15px}.contact ul{justify-content:space-between}.webkitFillImage{width:300px}.dnone{display:inline-block!important}#mainMenu:not(.menu-overlay) nav>ul>li.dropdown:before{display:none}.servicesDropdown{display:flex!important;justify-content:space-between!important}.customer{font-size:18px}
+        .contact_whatsapp {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            position: fixed;
+            bottom: 2%;
+            left: 2%;
+            z-index: 999999
+        }
+
+        .contact_whatsapp img {
+            width: 100%;
+            height: 100%
+        }
+
+        .carousel .polo-carousel-item .accordion-image-logo {
+            width: 35%;
+            aspect-ratio: 3/2;
+            object-fit: contain;
+            mix-blend-mode: color-burn
+        }
+
+        .contact ul {
+            display: flex;
+            gap: 30px;
+            justify-content: end;
+            list-style-type: none;
+            margin-top: 1rem
+        }
+
+        .contact ul li a {
+            color: #fff
+        }
+
+        .contact ul li a:hover {
+            color: blue !important
+        }
+
+        #topbar.topbar-colored,
+        #topbar.topbar-colored.dark {
+            background-color: #000
+        }
+
+        .webkitFillImage {
+            width: -webkit-fill-available
+        }
+
+        .dnone {
+            display: none
+        }
+
+        .servicesDropdown {
+            display: inline !important
+        }
+
+        .sticky-button {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #000;
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 9999;
+            outline: none;
+            border: none
+        }
+
+        .rating i {
+            color: darkgoldenrod
+        }
+
+        @media only screen and (min-width:1px) and (max-width:520px) {
+            .contact_whatsapp {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                position: fixed;
+                bottom: 2%;
+                left: 2%;
+                z-index: 999999
+            }
+
+            .contact_whatsapp img {
+                width: 100%;
+                height: 100%
+            }
+
+            .carousel .polo-carousel-item .accordion-image-logo {
+                width: 80%;
+                aspect-ratio: 3/2;
+                object-fit: contain;
+                mix-blend-mode: color-burn
+            }
+
+            .quote {
+                font-size: 15px
+            }
+
+            .contact ul {
+                justify-content: space-between
+            }
+
+            .webkitFillImage {
+                width: 300px
+            }
+
+            .dnone {
+                display: inline-block !important
+            }
+
+            #mainMenu:not(.menu-overlay) nav>ul>li.dropdown:before {
+                display: none
+            }
+
+            .servicesDropdown {
+                display: flex !important;
+                justify-content: space-between !important
+            }
+
+            .customer {
+                font-size: 18px
+            }
         }
     </style>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
-        (function(){
-          emailjs.init({
-            publicKey: "eEzSwOf8-3wC08zPr",
-          });
+        (function () {
+            emailjs.init({
+                publicKey: "eEzSwOf8-3wC08zPr",
+            });
         })();
+        function sendMail(e){e.preventDefault();emailjs.sendForm('service_6ct8w99','template_9su4e6o','#enquiryForm').then((response)=>{console.log('SUCCESS!',response.status,response.text);Swal.fire({icon:'success',title:'Success!',text:'Enquiry Raised',});document.getElementById("enquiryForm").reset()},(error)=>{Swal.fire({icon:'error',title:'Oops...',text:'Something went wrong!',})},);return!1}
     </script>
 </head>
 <div class="contact_whatsapp"
@@ -32,6 +159,7 @@
     <img src="images/whatsapp.webp" alt="whatsapp" loading="lazy">
 </div>
 <a class="sticky-button" href="tel:+919666351433"><i class="fa fa-phone"></i> +91 9666351433</a></button>
+
 <body>
     <div class="body-inner">
         <div id="topbar" class="dark topbar-colored topbar-fullwidth">
@@ -39,8 +167,9 @@
                 <div class="row" style="justify-content: space-between;">
                     <div>
                         <div style="margin:1rem 0;">
-                            <img src="images/logo.webp" alt="logo" loading="lazy" width="140px"/>
-                            <span class="quote lead text-center customer" style="color: #ffffff;">Customer Helpline</span>
+                            <img src="images/logo.webp" alt="logo" loading="lazy" width="140px" />
+                            <span class="quote lead text-center customer" style="color: #ffffff;">Customer
+                                Helpline</span>
                         </div>
                     </div>
                     <div class="col-md-6 d-sm-block">
@@ -50,7 +179,8 @@
                                         <p style="color: #ffffff; margin-bottom: 0">Talk to an expert now </p><i
                                             class="fa fa-phone"></i> +91 9666351433
                                     </a></li>
-                                <li><a style="word-break: break-all; color: #ffffff;" href="mailto:wecarehomeservices5@gmail.com">Email
+                                <li><a style="word-break: break-all; color: #ffffff;"
+                                        href="mailto:wecarehomeservices5@gmail.com">Email
                                         : <i class="fa fa-envelope"></i>wecarehomeservices5@gmail.com</a></li>
                             </ul>
                         </div>
@@ -62,23 +192,26 @@
             <div class="header-inner">
                 <div class="container">
                     <div id="mainMenu-trigger">
-                        <button class="lines-button x"><span class="lines"></span><span class="sr-only">Toggle Menu</span></button>
+                        <button class="lines-button x"><span class="lines"></span><span class="sr-only">Toggle
+                                Menu</span></button>
                     </div>
                     <div id="mainMenu">
                         <div class="container">
                             <nav>
                                 <ul>
                                     <li><a href="index.html">Home</a></li>
-                                    <li class="dropdown"><a class="servicesDropdown" href="https://wecarehomeservices.in/services.html">Services<span class="dnone"><i class="fa fa-chevron-down" aria-hidden="true"></i></span></a>
+                                    <li class="dropdown"><a class="servicesDropdown" href="services.html">Services<span
+                                                class="dnone"><i class="fa fa-chevron-down"
+                                                    aria-hidden="true"></i></span></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="https://wecarehomeservices.in/services.html#refrigerator">Refrigerator
+                                            <li><a href="services.html#refrigerator">Refrigerator
                                                     Service</a></li>
-                                            <li><a href="https://wecarehomeservices.in/services.html#airconditioner">AC
+                                            <li><a href="services.html#airconditioner">AC
                                                     Service</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="https://wecarehomeservices.in/about.html">About Us</a></li>
-                                    <li><a href="https://wecarehomeservices.in/contact.html">Contact Us</a></li>
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="contact.html">Contact Us</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -96,7 +229,7 @@
                             Fingertips, Your Trusted Partner for Home Services.</h5>
                         <p>Call us now at: <a href="tel:+919666351433">+91
                                 9666351433</a></p>
-                        <a href="https://wecarehomeservices.in/index.html" class="btn scroll-to">Get Started</a>
+                        <a href="index.html" class="btn scroll-to">Get Started</a>
                     </div>
                 </div>
             </div>
@@ -109,7 +242,8 @@
                 </div>
                 <div class="row" data-animate="fadeInUp">
                     <div class="col-lg-12 text-center">
-                        <img class="img-fluid" src="images/ac1.webp" loading="lazy" alt="Welcome to WE CARE HOME SERVICES">
+                        <img class="img-fluid" src="images/ac1.webp" loading="lazy"
+                            alt="Welcome to WE CARE HOME SERVICES">
                     </div>
                 </div>
             </div>
@@ -126,7 +260,7 @@
                             <h4>Refrigerator Repairs</h4>
                             <p>Expert technicians ready to diagnose and fix any refrigerator issue, ensuring your
                                 appliance runs smoothly again.</p>
-                            <img class="webkitFillImage" src="images/fridge2.webp" alt="fridge" loading="lazy"/>
+                            <img class="webkitFillImage" src="images/fridge2.webp" alt="fridge" loading="lazy" />
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -134,7 +268,7 @@
                             <h4>Refrigerator Maintenance</h4>
                             <p>Preventive maintenance plans to keep your refrigerator in top condition, prolonging its
                                 lifespan and preventing costly breakdowns.</p>
-                            <img class="webkitFillImage" src="images/fridge1.webp" alt="fridge" loading="lazy"/>
+                            <img class="webkitFillImage" src="images/fridge1.webp" alt="fridge" loading="lazy" />
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -164,7 +298,8 @@
                     <div class="col-lg-4">
                         <div data-animate="fadeInUp" data-animate-delay="1000">
                             <h4>AC Services</h4>
-                            <p>At We Care Home Services, we understand the crucial role your air conditioning system plays
+                            <p>At We Care Home Services, we understand the crucial role your air conditioning system
+                                plays
                                 in your daily life, and we're dedicated to making sure it keeps you cool when
                                 you need it most.</p>
                             <img class="webkitFillImage" src="images/ac4.webp" alt="ac" loading="lazy" />
@@ -185,10 +320,18 @@
                 </div>
                 <div class="pricing-body">
                     <ul style="list-style-type: none;">
-                        <li><h3>Basic Service: RS.500</h3></li>
-                        <li><h3>Topup Gas: RS.1800</h3></li>
-                        <li><h3>Gas Refill: RS.2800</li>
-                        <li><h3>Installation: RS.2500</li>
+                        <li>
+                            <h3>Basic Service: RS.500</h3>
+                        </li>
+                        <li>
+                            <h3>Topup Gas: RS.1800</h3>
+                        </li>
+                        <li>
+                            <h3>Gas Refill: RS.2800
+                        </li>
+                        <li>
+                            <h3>Installation: RS.2500
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -210,14 +353,16 @@
                 <div class="col-lg-4">
                     <div>
                         <h4>Same-Day Service</h4>
-                        <p>We understand that some issues require immediate attention. That's why we offer same-day service to
+                        <p>We understand that some issues require immediate attention. That's why we offer same-day
+                            service to
                             address your urgent needs promptly and efficiently.</p>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div>
                         <h4>Convenient Home Service</h4>
-                        <p>Forget the hassle of bringing your appliances to a service center. We offer convenient home service,
+                        <p>Forget the hassle of bringing your appliances to a service center. We offer convenient home
+                            service,
                             where our experts come to your doorstep, saving you time and effort.</p>
                     </div>
                 </div>
@@ -254,27 +399,33 @@
             <div class="row">
                 <div class="col-lg-6">
                     <h4>Proper Ventilation</h4>
-                    <p>Ensure adequate ventilation in the repair area to prevent the buildup of harmful gases or fumes.</p>
+                    <p>Ensure adequate ventilation in the repair area to prevent the buildup of harmful gases or fumes.
+                    </p>
                 </div>
                 <div class="col-lg-6">
                     <h4>Power Off</h4>
-                    <p>Always turn off the power supply to the appliance before starting any repair work to avoid electric shocks.</p>
+                    <p>Always turn off the power supply to the appliance before starting any repair work to avoid
+                        electric shocks.</p>
                 </div>
                 <div class="col-lg-6">
                     <h4>Use of Insulated Tools</h4>
-                    <p>Use insulated tools and equipment to minimize the risk of electrical accidents while working on live circuits.</p>
+                    <p>Use insulated tools and equipment to minimize the risk of electrical accidents while working on
+                        live circuits.</p>
                 </div>
                 <div class="col-lg-6">
                     <h4>Protective Gear</h4>
-                    <p>Wear appropriate protective gear such as gloves and safety goggles to protect yourself from sharp edges and chemicals.</p>
+                    <p>Wear appropriate protective gear such as gloves and safety goggles to protect yourself from sharp
+                        edges and chemicals.</p>
                 </div>
                 <div class="col-lg-6">
                     <h4>Secure Workspace</h4>
-                    <p>Ensure the workspace is clean, organized, and free from clutter to prevent tripping hazards and accidents.</p>
+                    <p>Ensure the workspace is clean, organized, and free from clutter to prevent tripping hazards and
+                        accidents.</p>
                 </div>
                 <div class="col-lg-6">
                     <h4>Proper Handling</h4>
-                    <p>Handle refrigerants and other hazardous materials with care, following manufacturer guidelines and safety protocols.</p>
+                    <p>Handle refrigerants and other hazardous materials with care, following manufacturer guidelines
+                        and safety protocols.</p>
                 </div>
             </div>
         </div>
@@ -387,7 +538,7 @@
                 </div>
             </div>
         </div>
-    </section>    
+    </section>
     <section class="text-light p-t-150 p-b-150 " style="background-color: black;">
         <div class="bg-overlay"></div>
         <div class="container">
@@ -463,7 +614,8 @@
                         </div>
                         <div class="form-group">
                             <label for="message">Message:</label>
-                            <textarea class="form-control" id="message" name="message" placeholder="Tell us more about your request..." ></textarea>
+                            <textarea class="form-control" id="message" name="message"
+                                placeholder="Tell us more about your request..."></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
@@ -488,10 +640,10 @@
                                 <div class="widget">
                                     <div class="widget-title">Discover</div>
                                     <ul class="list">
-                                        <li><a href="https://wecarehomeservices.in/index.html">Home</a></li>
-                                        <li><a href="https://wecarehomeservices.in/services.html">services</a></li>
-                                        <li><a href="https://wecarehomeservices.in/about.html">About Us</a></li>
-                                        <li><a href="https://wecarehomeservices.in/contact.html">Contact Us</a></li>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="services.html">services</a></li>
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li><a href="contact.html">Contact Us</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -499,10 +651,9 @@
                                 <div class="widget">
                                     <div class="widget-title">Services</div>
                                     <ul class="list">
-                                        <li><a
-                                                href="https://wecarehomeservices.in/services.html#refrigerator">Refrigerator</a>
+                                        <li><a href="services.html#refrigerator">Refrigerator</a>
                                         </li>
-                                        <li><a href="https://wecarehomeservices.in/services.html#airconditioner">Air
+                                        <li><a href="services.html#airconditioner">Air
                                                 Conditioner</a></li>
                                     </ul>
                                 </div>
@@ -560,5 +711,7 @@
     </div>
     <a id="scrollTop"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
     <script src="js/plugins.js"></script>
+    <script src="js/functions.js"></script>
 </body>
+
 </html>
