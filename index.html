@@ -151,8 +151,18 @@
                 publicKey: "eEzSwOf8-3wC08zPr",
             });
         })();
-        function sendMail(e){e.preventDefault();emailjs.sendForm('service_6ct8w99','template_9su4e6o','#enquiryForm').then((response)=>{console.log('SUCCESS!',response.status,response.text);Swal.fire({icon:'success',title:'Success!',text:'Enquiry Raised',});document.getElementById("enquiryForm").reset()},(error)=>{Swal.fire({icon:'error',title:'Oops...',text:'Something went wrong!',})},);return!1}
+        function sendMail(e) { e.preventDefault(); emailjs.sendForm('service_6ct8w99', 'template_9su4e6o', '#enquiryForm').then((response) => { console.log('SUCCESS!', response.status, response.text); Swal.fire({ icon: 'success', title: 'Success!', text: 'Enquiry Raised', }); document.getElementById("enquiryForm").reset() }, (error) => { Swal.fire({ icon: 'error', title: 'Oops...', text: 'Something went wrong!', }) },); return !1 }
     </script>
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-56WB9463');</script>
+    <!-- End Google Tag Manager -->
 </head>
 <div class="contact_whatsapp"
     onclick="window.open('https://api.whatsapp.com/send?phone=+917995414496&text=Hi,%20I%20got%20your%20number%20from%20your%20website,%20We%20Care%20Home%20Services')">
@@ -712,6 +722,10 @@
     <a id="scrollTop"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
     <script src="js/plugins.js"></script>
     <script src="js/functions.js"></script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-56WB9463" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 </body>
 
 </html>
